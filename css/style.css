@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+                /*------------VARIÁVEIS----------*/
+                :root {
+                    /* Light Mode Color Scheme*/
+    
+                        /*backgrounds*/
+                        --backgroundExtraLight: #eff4f8; /*Background dos cards*/
+                        --backgroundMediumLight: #f8fafb; /*Background do HTML*/
+                        --backgroundDarkLight: white; /*Background da barra de status, da área canvas e do preenchimento das figuras*/
+                        --backgroundGradientGreen: linear-gradient(90deg, #1273eb 0%, #418fee 60%, #1273eb 100%);
+                        --backgroundGreenStandard: #1975e8; /*Roxo padrão dos botões e detalhes*/
+                        --backgroundGreenHover: #195fb4; /*Roxo mais escuro dos botões (hover)*/
+                        --backgroundGreenActive: #2e89f8; /*Roxo claro dos botões (click)*/
+                        --backgroundSelectionGreen: #83b7f7; /*Seleção de texto roxa*/
+                        /*text colors*/
+                        --textColorLightMode: rgb(255, 255, 255);
+                        --textColorLabelsLightMode: #3c4d5b;
+                        --textColorLabelsHoverLightMode: rgb(8, 8, 8);
+                        /*sliders lightmode*/
+                        --backgroundTrackSecondHalfLightMode: #c7c7c7;
+                        --backgroundSlideButtonLightMode: #1975e8;
+                        --backgroundSlideButtonHoverLightMode: #195fb4;
+                        --textColorSlideNumbersLightMode: #000;
+                        /*sliders disabled lightmode*/
+                        --backgroundTrackSecondHalfDisabledLightMode: #858585;
+                        --backgroundSliderButtonDisabledLightMode: #555555;
+                        --backgroundSliderButtonHoverDisabledLightMode: #747474;
+                        /*radio image*/
+                        --radioImageLightMode: url(https://cdn.discordapp.com/attachments/874412727311937548/897686207226580992/radiolightmode.png);
+                /*---------------------------*/
+    
+    
+                /*Dark Mode Color Scheme */
+                        
+                        /*backgrounds*/
+                        --backgroundSuperDark: #0f1017; /*Background dos cards*/
+                        --backgroundMediumDark: #1d1d26; /*Background do HTML*/
+                        --backgroundLightDark: #27293d; /*Background da barra de status, da área canvas e do preenchimento das figuras*/
+                        --backgroundGradientPurple: linear-gradient(90deg, rgba(187,134,252,1) 0%, rgba(115,77,202,1) 60%, rgba(115,77,202,1) 100%);
+                        --backgroundPurpleStandard: #4f3786; /*Roxo padrão dos botões e detalhes*/
+                        --backgroundPurpleHover: #432f72; /*Roxo mais escuro dos botões (hover)*/
+                        --backgroundPurpleActive: #75639e; /*Roxo claro dos botões (click)*/
+                        --backgroundSelectionPurple: #8f71d5; /*Seleção de texto roxa*/
+                        /*text colors*/
+                        --textColorDarkMode: white;
+                        --textColorLabelsDarkMode: #adadad;
+                        --textColorLabelsHoverDarkMode: rgb(214, 214, 214);
+                        /*sliders habilitados*/
+                        --backgroundTrackSecondHalfDarkMode: #27282d;
+                        --backgroundSlideButtonDarkMode: #734dca;
+                        --backgroundSlideButtonHoverDarkMode: #5f33c2;
+                        --textColorSlideNumbersDarkMode: #fff;
+                        /*sliders desabilitados*/
+                        --backgroundTrackSecondHalfDisabledDarkMode: #4b4b4b;
+                        --backgroundSliderButtonDisabledDarkMode: #555555;
+                        --backgroundSliderButtonHoverDisabledDarkMode: #353535;
+                        /*radio image*/
+                        --radioImageDarkMode: url(https://cdn.discordapp.com/attachments/874412727311937548/880307943810142278/check_radio_sheet.png);
+                /*---------------------------*/
+                
+    
+    
+                /*ATIVOS*/
+                        
+                        /*backgrounds ativos*/
+                        --backgroundCards: var(--backgroundSuperDark); 
+                        --backgroundBody: var(--backgroundMediumDark); 
+                        --backgroundStatusCanvas: var( --backgroundLightDark);
+                        --backgroundButtonStandard: var(--backgroundPurpleStandard); 
+                        --backgroundButtonHover: var(--backgroundPurpleHover); 
+                        --backgroundButtonActive: var(--backgroundPurpleActive); 
+                        --backgroundSelection: var(--backgroundSelectionPurple); 
+                        /*texts colors ativos*/
+                        --textColorStandard: var(--textColorDarkMode);
+                        --textColorInputLabels: var(--textColorLabelsDarkMode);
+                        --textColorInputLabelsHover: var(--textColorLabelsHoverDarkMode);
+                        /*sliders habilitados*/
+                        --backgroundTrackFirstHalf:  var(--backgroundGradientPurple);
+                        --backgroundTrackSecondHalf: var(--backgroundTrackSecondHalfDarkMode); 
+                        --textColorSlideNumbers: var(--textColorSlideNumbersDarkMode);  
+                        --backgroundSlideButton: var(--backgroundSlideButtonDarkMode); 
+                        --backgroundSlideButtonHover: var(--backgroundSlideButtonHoverDarkMode);
+                        /*sliders desabilitados*/
+                        --backgroundTrackSecondHalfDisabled: var(--backgroundTrackSecondHalfDisabledDarkMode);
+                        --backgroundSliderButtonDisabled: var(--backgroundSliderButtonDisabledDarkMode);
+                        --backgroundSliderButtonHoverDisabled: var(--backgroundSliderButtonHoverDisabledDarkMode);
+                       /*radio image ativo*/
+                        --radioImage: var(--radioImageDarkMode);
+                       
+                        /*---------------------------------*/  
+    
+    
+                        font-size: calc(15px + (30 - 16)*(100vw - 320px)/(2560 - 320));
+                    }
+                   
+                    
+                    
+                
+                    @media print
+                    {   
+                        .no-print, .no-print *{ display: none !important;}
+                        .card-group{box-shadow: none !important; }
+                    }
+                    @page {
+                        size: 20cm 20cm;
+                        margin: 30mm 45mm 30mm 45mm;
+                    }
+                    /*Ajuste Gerais*/
+                    *{font-family: "Inter", sans-;}
+                    html,body{
+                        background-color: var(--backgroundBody);
+                        -webkit-print-color-adjust: exact !important;
+                        
+                    }
+     
+                    ::selection{  /*Ajuste de cor de seleção*/
+                        background-color: var(--backgroundSelection);
+                        color: white;
+                    }
+                    
+                    /*Ajustes do Canvas SVG*/
+                    .canvasexterno{
+                        position: relative;
+                    }
+                    .badge-warning{
+                        background-color:chartreuse;
+                        color: black;
+                    }
+                    #svg{
+                        background-color: var(--backgroundStatusCanvas);
+                        border-radius: 10px;
+                        transition: all .2s ease-in-out;
+                        
+                    }
+                    #svg:active{
+                    
+                        transform: scale(2);
+                    }
+                    .gerador-bg{
+                        background-color: var(--backgroundCards);
+                        padding: 30px 20px 30px 20px;
+                        border-radius: 10px;
+                    }
+                    
+                    /* Título dos Inputs*/
+                    .label-title{
+                        color: var(--textColorInputLabels);
+                    }
+    
+                    .label-title:hover{
+                        color: var(--textColorInputLabelsHover);
+                    }
+                    .pontos-list{
+                        display: none;
+                        max-height: 200px;
+                        overflow: scroll;
+                        
+                    }
+    
+    /*--------------------------BOTÕES------------------------------*/
+    
+                                /*---------botão de renderizar----------*/
+    
+                                /*
+                    .btn-render{
+                       font-weight: 600;
+                       color: white;
+                       background: #734dca;
+                       width: 59%;
+                    }
+                    .btn-render:hover{
+                        color: white;
+                        box-shadow: 0px 0px 25px -12px #8F71D5;
+                    }
+                    .btn-render:active{
+                        background-color: #b9a6e5;
+                    }*/
+    
+                                /*---------botão de refresh----------*/
+                    .btn-refresh{
+                       font-weight: 600;
+                       background-color: var(--backgroundButtonStandard);
+                       width: 39%;
+                    }
+                    .btn-refresh:hover{
+                        color: var(--textColorStandard);
+                        background-color: var(--backgroundButtonHover);
+                    }
+                    .btn-refresh:active{
+                        background-color: var(--backgroundButtonActive);
+                    }
+                                /*---------botão light theme ---------*/
+                    .btn-lighttheme{
+                        
+                       font-weight: 600;
+                       background-color: var(--backgroundButtonStandard);
+                       width: 18.5%;
+                    }
+                    .btn-lighttheme:hover{
+                        color: var(--textColorStandard);
+                        background-color: var(--backgroundButtonHover);
+                    }
+                    .btn-lighttheme:active{
+                        
+                        background-color: var(--backgroundButtonActive);
+                    }
+                                /*---------botão de imprmir----------*/
+                    .btn-print{
+                        
+                        font-weight: 600;
+                       background-color: var(--backgroundButtonStandard);
+                       width: 39%;
+                    }
+                    .btn-print:hover{
+                        color: var(--textColorStandard);
+                        background-color: var(--backgroundButtonHover);
+                    }
+                    .btn-print:active{
+                        background-color: var(--backgroundButtonActive);
+                    }
+                                /*---------botão de manual----------*/
+                    .btn-manual{
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: var(--textColorStandard);
+                        width: 100%;
+                        font-size: 20px;
+                        padding-left: 9px;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        margin-top: 10px;
+                        background-color: var(--backgroundButtonStandard);
+                    }
+                    .btn-manual:hover{
+                        color: var(--textColorStandard);
+                        background-color: var(--backgroundButtonHover);
+                    }
+                                /*---------botão de tooltip----------*/
+                    .btn-tooltip{
+                       font-weight: 400;
+                       background-color: var(--backgroundButtonStandard);
+                       width: 15px;
+                       height: 15px;
+                       text-align: center;
+                       font-size:8px;
+                       border: none;
+                       border-radius: 50%;
+                       vertical-align: middle;
+                       color: var(--textColorStandard);
+                       text-align: center;
+                    }
+                    .btn:focus { /*Para tirar a borda azul do botão do bootstrap ao apertar*/
+                    box-shadow: none;
+                    }
+     /*----------------------------------------------------------------*/
+    
+    
+                    /*Ajuste de cores e tamanhos do Bootstrap*/
+                    .card-group{
+                        box-shadow: 0px 6px 21px -3px rgba(0,0,0,0.52);
+                        
+                    }
+                    .invert-color{                 
+                        -webkit-filter: invert(1);
+                        filter: invert(1);
+                    }
+                    .card{
+                        border: var(--backgroundStatusCanvas);
+                        display:inline-block;
+                        background-color: var(--backgroundCards);
+                    }
+                    .card-body{
+                        background-color: var(--backgroundCards);
+                        justify-self: center; 
+                    }
+                    .card-footer{
+                        background-color: var(--backgroundStatusCanvas);
+                        color: var(--textColorStandard);
+                        text-align: center;
+                        font-size: 18px;
+                        border: none;
+                    }               
+                    .gerador-titulo{                
+                        color: var(--textColorStandard);
+                        font-family: inter;
+                        font-weight: 600;
+                        text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+                    }           
+                  
+                    .spinner-border{              
+                        width: 18px;
+                        height: 18px;
+                        margin-bottom: -1px;
+                    }
+                    .canvas-initial-image{
+                        animation-name: uerjscale;
+                        animation-duration: 8s;
+                        animation-iteration-count: infinite;
+                        transform-origin: 50% 50%;
+                    }
+                    @keyframes uerjscale {
+                        0%   { transform: scale(2.0); }
+                        50%  { transform: scale(1.8); }
+                        100% { transform: scale(2.0); }
+                    }
+                    .backtitle{
+                        background:  var(--backgroundGradientPurple);
+                        padding-left: 9px;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        background-size: 400% 400%;
+                        margin-top: 10px;
+                        animation: gradient 5s ease infinite;
+                    }
+                    @keyframes gradient {
+                        0% {
+                            background-position: 0% 50%;
+                        }
+                        50% {
+                            background-position: 100% 50%;
+                        }
+                        100% {
+                            background-position: 0% 50%;
+                        }
+                    }
+                    .grad-background{
+                        background:  var(--backgroundGradientPurple);
+                        background-size: 400% 400%;
+                        animation: gradient2 5s ease infinite;
+                    }
+                    @keyframes gradient2 {
+                        0% {
+                            background-position: 0% 50%;
+                        }
+                        50% {
+                            background-position: 100% 50%;
+                        }
+                        100% {
+                            background-position: 0% 50%;
+                        }
+                    }
+    
+                    .textosvg{
+                        font-size: 15px;
+                        
+                    }
+                    .qtdpontos{
+                        background-color: #07070a;
+                        width: 420px;
+                        text-align: center;
+                        margin-left: 0px;
+                        border-radius: 10px;
+                        font-size: 15px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        
+                    }
+    
+                    .form-control-color{
+                        background-color: var(--backgroundCards);
+                        border: none;
+                    }
+                    .form-control-color:focus{
+                        background-color: var(--backgroundCards);
+                        border: none;
+                        box-shadow: none;
+                    }
+                    input[type='checkbox']{
+                        background-color: black;
+                    }
+                    input[type='checkbox']:checked{
+                        background-color: var(--backgroundPurpleStandard);
+                        border: none;
+                    }
+                    input[type='checkbox']:focus{
+                        border: none;
+                        box-shadow: none;
+                    }
+    
+                    #listadepontos{
+                        font-size: 15px;
+                        
+    
+                    }
+                    .rowpontos{
+                        overflow: auto;
+                        max-height: 300px;
+                        background-color: #07070a;
+                        height: 300px;
+                        width: 80%;
+                        border-radius: 10px;
+                        border: 10px solid #07070a;
+                    }
+    
+                    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    /*--------------------------------------------- SCROLL BAR ----------------------------------------------------*/
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #07070a;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #27282d;
+      border-radius: 10px;
+      
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #27282d;
+    }
+    /*--------------------------------------------- RANGE SLIDER CSS ----------------------------------------------------*/
+    
+                    .range input[type=range]:disabled{
+                                --backgroundTrackSecondHalf: var(--backgroundTrackSecondHalfDisabled);
+                                --backgroundSlideButton: var(--backgroundSliderButtonDisabled);
+                                --backgroundSlideButtonHover: var(--backgroundSliderButtonHoverDisabled);
+                    }
+                    body, input {
+                        color: var(--textColorSlideNumbers);
+                        font: 1em/1.5 "Hind", sans-serif;
+                    }
+                    body, .range, .range__counter {
+                        display: flex;
+                    }
+                    body {
+                        background-color: var(--bg);
+                        height: 100vh;
+                    }
+                    form, input, .range__input, .range__counter-sr {
+                        width: 100%;
+                    }
+                    form {
+                        margin: auto;
+                        padding: 0 0.75em;
+                        max-width: 17em;
+                    }
+                    label {
+                        font-weight: bold;
+                    }
+                    .range:not(:last-child) {
+                        margin-bottom: 1.5em;
+                    }
+                    .range input[type=range],
+                    .range input[type=range]::-webkit-slider-thumb {
+                        -webkit-appearance: none; 
+                        appearance: none;
+                    }
+                    .range input[type=range], .range__input-fill {
+                        border-radius: 0.25em;
+                        height: 0.5em;
+                    }
+                    .range input[type=range] {
+                        background-color: var(--backgroundTrackSecondHalf);
+                        display: block;
+                        margin: 0.5em 0;
+                        padding: 0;
+                    }
+                    .range input[type=range]:focus {
+                        outline: transparent;
+                    }
+                    .range input[type=range]::-webkit-slider-thumb {
+                        background-color: var(--backgroundSlideButton);
+                        border: 0;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        position: relative;
+                        transition: background 0.1s linear;
+                        width: 1.5em;
+                        height: 1.5em;
+                        z-index: 1;
+                    }
+                    .range input[type=range]::-moz-range-thumb {
+                        background-color: var(--backgroundSlideButton);
+                        border: 0;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        position: relative;
+                        transform: translateZ(1px);
+                        transition: background-color 0.1s linear;
+                        width: 1.5em;
+                        height: 1.5em;
+                        z-index: 1;
+                    }
+                    .range input[type=range]::-moz-focus-outer {
+                        border: 0;
+                    }
+                    .range__input, .range__input-fill, .range__counter-column, .range__counter-digit {
+                        display: block;
+                    }
+                    .range__input, .range__counter {
+                        position: relative;
+                    }
+                    .range__input {
+                        margin-right: 0.375em;
+                    }
+                    .range__input:active input[type=range]::-webkit-slider-thumb,
+                    .range input[type=range]:focus::-webkit-slider-thumb,
+                    .range input[type=range]::-webkit-slider-thumb:hover {
+                        background-color: var(--backgroundSlideButtonHover);
+                    }
+                    .range__input:active input[type=range]::-moz-range-thumb,
+                    .range input[type=range]:focus::-moz-range-thumb,
+                    .range input[type=range]::-moz-range-thumb:hover {
+                        background-color: var(--backgroundSlideButtonHover);
+                    }
+                    .range__input-fill, .range__counter-sr {
+                        position: absolute;
+                        left: 0;
+                    }
+                    .range__input-fill {
+                        background: var(--backgroundTrackFirstHalf);
+                        pointer-events: none;
+                        top: calc(50% - 0.25em);
+                        animation: gradient2 8s ease infinite;
+                        background-size: 200% 200%;
+                    }
+                    @keyframes gradient2 {
+                        0% {
+                            background-position: 0% 50%;
+                        }
+                        50% {
+                            background-position: 100% 50%;
+                        }
+                        100% {
+                            background-position: 0% 50%;
+                        }
+                    }
+                    .range__counter, .range__counter-digit {
+                        height: 1.5em;
+                    }
+                    .range__counter {
+                        margin: auto 0;
+                        overflow: hidden;
+                        text-align: center;
+                        padding-right: 10px;
+                    }
+                    .range__counter-sr {
+                        color: transparent;
+                        letter-spacing: 0.08em;
+                        top: 0;
+                        text-align: right;
+                        z-index: 1;
+                    }
+                    .range__counter-column {
+                        transition: transform 0.25s ease-in-out;
+                        width: 0.66em;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        user-select: none;
+                    }
+                    .range__counter-column--pause {
+                        transition: none;
+                    }
+    /*--------------------------------------------- FIM RANGE SLIDER CSS ----------------------------------------------------*/
+    
+    /*--------------------------------------------- INICIO SYLE RADIO BUTTONS ----------------------------------------------------*/
+    div#show {
+        width:280px;
+        height:200px;
+        padding:20px;
+        position:absolute;
+        left:50%;
+        margin-left:-120px;
+        top:50%;
+        margin-top:-160px;
+        background:#40464b;
+        border-radius:6px;
+    }
+    
+    h1 {
+        font-size:14px;
+        color:#f2f2f2;
+        text-align:center;
+        margin:0 0 20px;
+        padding:0;
+        font-family:Arial;
+    }
+    
+    
+    
+    input[type="radio"] {
+        display:none;
+    }
+    
+    input[type="radio"] + label {
+        color:var(--textColorInputLabels);
+        font-size:20px;
+        font-weight: 500;
+    }
+    
+    input[type="radio"] + label span {
+        display:inline-block;
+        width:19px;
+        height:19px;
+        margin:-1px 4px 0 0;
+        vertical-align:middle;
+        background:var(--radioImage) -38px top no-repeat;
+        cursor:pointer;
+    }
+    
+    input[type="radio"]:checked + label span {
+        background:var(--radioImage) -57px top no-repeat;
+    }
+    /*--------------------------------------------- FIM SYLE RADIO BUTTONS ----------------------------------------------------*/

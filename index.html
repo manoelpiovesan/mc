@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        
+        
+
+        <div class="container">
+            <p style='margin-top: 20px;'></p>
+            <div class="row text-center ">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body pontos-list" ><small id='pontos-list'></small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gerador-bg">
+                <div class="col">
+                    <!--row do gerador-->
+                    <div class="row">
+                        
+                        <div class="col">
+                            <form id='myForm'>        
+                                <!-- RADIO BUTTONS-->
+                                        <label class='label-title' >Formato<span> </span><button type='button' class='btn-tooltip' data-toggle="tooltip" title="O seletor de formatos permite o usuário escolher a forma geométrica de domínio que será empregada na malha.">?</button></label></br>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input type="radio"  name="radioformato" id="r2" value='Square'  onclick="alterarForm('square')"/>
+                                                    <label class='label-title' for="r2"><span></span>Quadrado</label>
+                                                         
+                                                    <div class="invisible">
+                                                        <input disabled type="radio" name="radioformato" id="r3" value='Rect'  onclick="alterarForm('rect')"/>
+                                                        <label class='label-title' for="r3"><span></span>Retângulo</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="radio" checked="checked" name="radioformato" id="r1" value='Circle'  onclick="alterarForm('circle')"/>
+                                                    <label class='label-title' for="r1"><span></span>Círculo </label>
+                                                         <br>
+                                                    <div class="invisible">
+                                                        <input type="radio" name="radioformato" id="r4" value='Elipse'  onclick="alterarForm('elipse')"/>
+                                                        <label class='label-title' for="r4"><span></span>Elipse</label>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                        
+                                            </div>
+                                <!--FIM DO RADIO BUTTONS-->
+                                            
+                                            
+                                            <label for="range2" class='label-title'>Grau de Refinamento <span style='color: rgb(92, 92, 92); font-size: 15px;'>(%)</span> <button type='button' class='btn-tooltip' data-toggle="tooltip" title="O Seletor de grau de refinamento de malha permite que o usuário defina uma porcentagem do tamanho de domínio que será definido como o tamanho das arestas das suas subdivisões. Clique sobre o slider e aperte as setas do seu teclado para um ajuste de unidade mais preciso.">?</button></label>
+                                            <input id="range2" name="range2" type="range" min="0" max="100" value="50" > 
+                                            <p style='font-size: 15px;'>Primeiro defina o grau de refinamento e depois o tamanho do lado abaixo.</p>
+                                            <hr>
+                                            <label for="range1" id='labelrange1' class='label-title' >Tamanho do Lado</label><span style='color: rgb(92, 92, 92); font-size: 15px;' id='labeldimensao'></span> </label>
+                                            <input id="range1" name="range1" type="range" min="0" max="400" value="0" >                               
+                                            <p style='font-size: 15px;'>Graus de refinamento abaixo de 30% podem causar lentidão no carregamento da malha dependendo do seu processador.</p>
+                                            <hr>
+                                            <label for="" class='label-title'>Opcionais</label>
+                                            
+                                            <div class="form-check">
+                                                <input checked class="form-check-input" type="checkbox" value="" id="checkbox1">
+                                                <label style='font-size: 15px; font-weight: 500;'class="form-check-label" for="checkbox1">
+                                                  Ligações Horizontais
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input  class="form-check-input" type="checkbox" value="" id="checkbox2">
+                                                <label style='font-size: 15px; font-weight: 500;'class="form-check-label" for="checkbox2">
+                                                  Exibir Números Internos
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input  class="form-check-input" type="checkbox" value="" id="checkbox3">
+                                                <label style='font-size: 15px; font-weight: 500;'class="form-check-label" for="checkbox3">
+                                                  Exibir Números Externos
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <label for="" class='label-title'>Cores</label>
+                                            
+                                            <div class="input-group">
+                                                <input type="color" title='Pontos Internos' class="form-control-color form-control" id='color1' value='#1ddd8a'>
+                                                <input type="color" title='Pontos de Fronteira' class="form-control-color form-control" id='color4' value='#ae00ff'>
+                                                <input type="color" title='Ligações' class="form-control-color form-control" id='color2' value='#121221'>
+                                                <input type="color" title='Números' class="form-control-color form-control" id='color3' value='#ffffff'>
+                                            </div>
+                                            <br>
+                                            
+                                                    
+                                                
+                                            
+                                            
+                                            <div class="invisible">
+                                                <label  for="range3" id='labelrange3' class='label-title'><span style='color: rgb(92, 92, 92);'>Desativado</span> <span style='color: rgb(92, 92, 92); font-size: 15px;' id='labelaltura'></span></label>
+                                                <input disabled id="range3" name="range3" type="range" min="1" max="300" value="200"> 
+            
+                                                                                                                    
+                                                
+                                                <label for="range4"  id='labelrange4' class='label-title'>Ângulo de Rotação <span id='spanlabelrange4'style='color: rgb(92, 92, 92); font-size: 15px;'>(Desativado) </span><button type='button' class='btn-tooltip ' data-toggle="tooltip" data-html="true" title="O seletor de rotação permite o usuário rotacionar o domínio da malha em até 360º, por padrão, o valor inicial é sempre 0º. Clique sobre o slider e aperte as setas do seu teclado para um ajuste de unidade mais preciso.">?</button></label>
+                                                <input disabled id="range4" name="range4" type="range" min="0" max="360" value="0">
+                                            </div>
+                                           
+                                    </form>  
+                        </div><!--primeira coluna-->
+                        <div class="col">
+                            <div id="svg-print">
+                                <svg  width='420px' height='420px' id='svg'>
+                                    
+                                    <image id='canvaslogo' class='canvas-initial-image'
+                                    x="60"
+                                    y="60"
+                                    width="300" 
+                                    height="300" 
+                                    opacity="0.6"
+                                    xlink:href="https://cdn.discordapp.com/attachments/874412727311937548/880270835632451635/3dgifmaker09477.gif" 
+                                />
+                                </svg>
+                                <p></p>
+                                
+                                <div class="row qtdpontos">
+                                    <div class="col">Quantidade de Pontos: <span id='qtd-pontos'>0</span></div>
+                                </div>
+                                <p style='margin-top: -8px;'></p>
+                                <div class="row qtdpontos">
+                                    <div class="col">Pontos sobre o domínio: <span id='qtd-pontos-dominio'>0</span></div>
+                                </div>
+                            </div>
+                            
+                            <hr>
+                            <label class='label-title'for="">Lista de Pontos</label>
+                            <p></p>
+                            <div class="row rowpontos">
+                                <div class="col">
+                                    <p id='listadepontos'></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button onclick='copiarclipboard()' style='font-size: 20px; padding: 10px; font-weight: 600; margin-top: 15px;'class="btn btn-light">
+                                        Copiar
+                                    </button>
+                                    <span style='color:grey; font-size: 20px; padding: 10px;' id='avisocopiado'></span>
+                                </div>
+                                
+                            </div>
+                                
+                                <div class='no-print invisible' style='width: 410px; height: 100px;'>
+                                </br>
+                                    <!-- INÍCIO DO BOTÃO DE RENDERIZAR-->
+                                    <!--<div id='btn-renderizar '   class="btn btn-render grad-background" onclick="alterarStatus(), renderizar()">Renderizar</div>-->
+                                    <!-- FIM DO BOTÃO DE RENDERIZAR-->
+                                    
+                                    <!-- INÍCIO DO BOTÃO DE REFRESH-->
+                                    <span data-toggle="tooltip" title="Resetar gerador">
+                                    <button class="btn btn-refresh"  onclick="refresh()"><img  class='invert-color' style='width: 30px;'src='https://cdn.discordapp.com/attachments/874412727311937548/879890741378318376/49866_undo_icon.png'></button>
+                                    </span>
+                                    <!-- FIM DO BOTÃO DE REFRESH-->
+        
+                                    <!-- INÍCIO DO BOTÃO DE PRINT-->
+                                    <span data-toggle="tooltip" title="Salvar em .png">
+                                    <button id='print-btn' disabled class="btn btn-print " onclick="DownloadAsImage()"><img class='invert-color' id='print-icon' style='width: 30px;'src='https://cdn.discordapp.com/attachments/874412727311937548/879888433990995968/103535_download_security_icon.png'></button>    
+                                    </span>
+                                    <!-- FIM DO BOTÃO DE PRINT-->
+                                     <!--BOTÃO MODO LIGHT THEME-->
+                                     
+                                     <button disabled class="btn btn-lighttheme" onclick="changeColorScheme()"><img id='theme-button-image' class='invert-color' style='width: 30px;'src='https://cdn.discordapp.com/attachments/874412727311937548/880457122213691412/2205209_bright_day_light_sun_icon.png'></button>
+                                    
+                                     <!--FIM BOTÃO LIGHT THEME-->
+                                </br>
+                                    <a href='https://drive.google.com/file/d/1_m3Xe3mDKq0Cx77HLj7t_nt_758V5jHO/view?usp=sharing' target="_blank"><div class="btn btn-manual">Documentação</div></a>
+                                </div>
+                            </br>
+                        </div><!--segunda coluna-->
+                    </div><!--fim primeira row-->
+                    <!--row do status-->
+                    <div class="row">
+                        <div class="col text-center">
+                            <p></p>
+                            <div class="spinner-border text-light"  id='loadingspinner' role="status"></div><!-- ÍCONE DE CARREGAMENTO-->
+                            <span id='statusgerador'>Aguardando dados para geração de malha...</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <br>
+            
+           <!--creditos-->
+           <div class="row">
+            <div class="col gerador-bg">
+                <div class="text-center footer"><img id='uerjfooter' src='https://cdn.discordapp.com/attachments/874412727311937548/874434737815552040/logo.png' style='width: 40px; margin-right:5px;'> | Desenvolvido pela turma de <b>Modelagem Computacional</b> de 2021.1 </div>
+            </div>
+           </div><!--fim terceira row(creditos)-->
+
+
+       <!--IMPORTANDO O BOOTSTRAP JS e JQUERY-->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+       <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+       <!--SCRIPT DO RANGE SLIDER-->
+        <script src="./js/rangeslider.js"></script>
+        
+        <!--SCRIPTS PRÓPRIOS-->
+        <script src="./js/index.js"></script>
+    
+    
+    
+</body>
+</html>             
